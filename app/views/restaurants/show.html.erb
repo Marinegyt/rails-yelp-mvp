@@ -1,0 +1,20 @@
+<div class='container'>
+
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.category.upcase %></p>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+
+  <p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
+
+  <%=  render 'reviews/form', restaurant: @restaurant, review: @review%>
+
+  <%= link_to 'Back to list', restaurants_path, class: "btn btn-primary"%>
+
+</div>
